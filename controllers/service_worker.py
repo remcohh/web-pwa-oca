@@ -9,7 +9,7 @@ class ServiceWorker(PWA):
 
     JS_PWA_CORE_EVENT_INSTALL = """
         self.addEventListener('install', evt => {{
-            console.log('[ServiceWorker] Installing...');
+            console.log('[ServiceWorker] Installing...>>>1');
             {}
         }});
     """
@@ -40,12 +40,13 @@ class ServiceWorker(PWA):
             {pwa_core_event_install}
             {pwa_core_event_activate}
             {pwa_core_event_fetch}
-            self.addEventListener('visibilitychange', function() {
-                if (document.visibilityState === 'visible') {
+            self.addEventListener('visibilitychange', function() {{
+            if (document.visibilityState === 'visible') {{
                 console.log('APP resumed');
                 window.location.reload();
-                }
-            });
+              }}
+            }})
+
         }});
     """
 
