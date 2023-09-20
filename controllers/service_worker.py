@@ -40,6 +40,12 @@ class ServiceWorker(PWA):
             {pwa_core_event_install}
             {pwa_core_event_activate}
             {pwa_core_event_fetch}
+            self.addEventListener('visibilitychange', function() {
+                if (document.visibilityState === 'visible') {
+                console.log('APP resumed');
+                window.location.reload();
+                }
+            });
         }});
     """
 
